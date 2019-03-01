@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Twoje lorem</title>
+    <link href="loremCss.css" rel="stylesheet">
+    <script type="text/javascript" src="loremJs.js"></script>
+</head>
+<body>
+
+<div id="loremFrame">
+<label th:text="${howMany}" />
+</div>
+<br/>
+<div>Wyświetlono <label th:text="${inputDisplayNumber}" />: <label th:text="${howManyInt}" /> </div>
+<br/>
+
+<input type="button" onclick="history.back()" class="showInline" value="<< Powrót" />
+
+<input type="button" onclick="selectAllLorem()" class="showInline" value="Zaznacz tekst"/>
+
+<input type="button" onclick="showHiddenText(), copyAllLorem()" class="showInline" value="Skopiuj tekst"/>
+
+<div id="hidden" class="text-copied-hidden showInline">Skopiowano</div>
+
+</body>
+</html>
