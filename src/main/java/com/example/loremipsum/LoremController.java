@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoremController {
 
-    LoremContent lc = new LoremContent();
+    LoremElements lw = new LoremWords();
+    LoremElements ls = new LoremSentences();
+    LoremElements lp = new LoremParagraphs();
 
 
     @GetMapping("/main")
@@ -24,26 +26,20 @@ public class LoremController {
             @RequestParam String inputtype,
             ModelMap map) {
 
-        if (howmany==null) {
+        if (howmany == null) {
             howmany = 0;
         }
+            String loremWordsPrintout = "";
 
-        String loremWordsPrintout="";
+            LoremElements le = inputtype.equals("słowa") ? lw : (inputtype.equals("zdania") ? ls : lp);
 
-        if (inputtype.equals("słowa")) {
-            loremWordsPrintout = lc.getLoremWords(howmany);
+            loremWordsPrintout = le.getLoremElements(howmany);
+
+            map.put("howMany", loremWordsPrintout);
+            map.put("howManyInt", howmany);
+            map.put("inputDisplayNumber", inputtype);
+
+            return "printout";
+
         }
-        else if (inputtype.equals("zdania")) {
-            loremWordsPrintout = lc.getLoremSentences(howmany);
-        }
-        else if (inputtype.equals("paragrafy")) {
-            loremWordsPrintout = lc.getLoremParagraphs(howmany);
-        }
-
-        map.put("howMany", loremWordsPrintout);
-        map.put("howManyInt", howmany);
-        map.put("inputDisplayNumber", inputtype);
-
-        return "printout";
     }
-}

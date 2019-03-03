@@ -19,6 +19,4 @@ function copyAllLorem() {
 function showHiddenText() {
 
     document.getElementById("hidden").classList.remove("text-copied-hidden");
-
-
 }
