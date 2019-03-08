@@ -1,12 +1,12 @@
 package com.example.loremipsum;
 
-public class LoremWords implements LoremElements {
+public class LoremWordCreateText implements LoremCreateText {
 
     LoremContent lc1 = new LoremContent();
 
     private String[] loremArrWords = lc1.loremFull.split(" ");
 
-    public String getLoremElements(int x) {
+    public String getLoremText(int x) {
         String showText = "";
         if (x > 1228) {
             return "Maksymalna ilość słów: 1228";

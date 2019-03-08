@@ -1,12 +1,12 @@
 package com.example.loremipsum;
 
-public class LoremSentences implements LoremElements {
+public class LoremSentenceCreateText implements LoremCreateText {
 
     LoremContent lc1 = new LoremContent();
 
     private String[] loremArrSentences = lc1.loremFull.split("\\. ");
 
-    public String getLoremElements(int x) {
+    public String getLoremText(int x) {
         String showText = "";
         if (x > 134) {
             return "Maksymalna ilość zdań: 134";

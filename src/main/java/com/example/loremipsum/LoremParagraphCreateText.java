@@ -1,13 +1,13 @@
 package com.example.loremipsum;
 
-public class LoremParagraphs implements LoremElements {
+public class LoremParagraphCreateText implements LoremCreateText {
 
     LoremContent lc1 = new LoremContent();
 
 
     private String[] loremArrParagraphs = lc1.loremFull.split("\n");
 
-    public String getLoremElements(int x) {
+    public String getLoremText(int x) {
         String showText = "";
         if (x > 12) {
             return "Maksymalna ilość paragrafów: 12";
